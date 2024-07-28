@@ -45,8 +45,11 @@ def extract_ideas_and_descriptions(text):
     
     return ideas[0], ideas[1], ideas[2]
 
-# Configure the API key and model
-genai.configure(api_key='YOUR_API_KEY')
+api_key = os.getenv('GEMINI_API_KEY')
+if not api_key:
+    raise ValueError("No API key provided. Please set the GENAI_API_KEY environment variable.")
+
+genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
 prompt="Answer in English and without adding bold or *. Looking at this image, give me 3 ideas that allow me to reuse it to build DIY projects in an eco-friendly way. Give me only the titles of the ideas without explaining the process and numbers. Then add a subtitle in which you give me a short title in English for a DIY tutorial. Format the result following this scheme: ideanumber) idea title % English title,"
 
