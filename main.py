@@ -46,7 +46,7 @@ def extract_ideas_and_descriptions(text):
     return ideas[0], ideas[1], ideas[2]
 
 # Configure the API key and model
-genai.configure(api_key='AIzaSyC-EdpokgAjqbA1KuKvaBz-F_kZHReHbCM')
+genai.configure(api_key='YOUR_API_KEY')
 model = genai.GenerativeModel('gemini-1.5-flash')
 prompt="Rispondi in Italiano e senza aggiungere il grassetto o *. Guardando questa immagine, dammi 3 idee che mi permettano di riusarla per costruire progetti DIY in modo ecologico. Dammi solo i titoli delle idee senza spiegare il procedimento e numerali. Aggiungi poi un sottotitolo in cui mi fornisci in inglese  un titolo breve per un tutorial DIY. Formatta il risultato seguendo questo schema: numeroidea) titolo idea % titolo inglese, "
 
