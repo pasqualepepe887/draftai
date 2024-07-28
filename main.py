@@ -48,7 +48,7 @@ def extract_ideas_and_descriptions(text):
 # Configure the API key and model
 genai.configure(api_key='YOUR_API_KEY')
 model = genai.GenerativeModel('gemini-1.5-flash')
-prompt="Rispondi in Italiano e senza aggiungere il grassetto o *. Guardando questa immagine, dammi 3 idee che mi permettano di riusarla per costruire progetti DIY in modo ecologico. Dammi solo i titoli delle idee senza spiegare il procedimento e numerali. Aggiungi poi un sottotitolo in cui mi fornisci in inglese  un titolo breve per un tutorial DIY. Formatta il risultato seguendo questo schema: numeroidea) titolo idea % titolo inglese, "
+prompt="Answer in English and without adding bold or *. Looking at this image, give me 3 ideas that allow me to reuse it to build DIY projects in an eco-friendly way. Give me only the titles of the ideas without explaining the process and numbers. Then add a subtitle in which you give me a short title in English for a DIY tutorial. Format the result following this scheme: ideanumber) idea title % English title,"
 
 
 app = Flask(__name__)
@@ -109,17 +109,17 @@ def info():
      app.logger.info(selected_idea)
 
      if selected_idea== "1":
-        second_prompt="Descrivimi in punti le instruzioni per costruire " +str(idee_1[0])+ " a partire da questa immagine come se fosse un tutorial poi le approfondirò io. Formatta il risultato in questo modo %Materiali: materiale1, materiale2, materiale3%  numero istruzione)  testo istruzione."
+        second_prompt="Describe to me in points the instructions to build " +str(idee_1[0])+ " starting from this image as if it were a tutorial then I will go into more detail. Format the result like this %Materials: material1, material2, material3% instruction number) instruction text."  
         selected_url_image=url_1
         selected_idea_var=idee_1[0]
 
      elif selected_idea== "2":
-        second_prompt="Descrivimi in punti le instruzioni per costruire " +str(idee_2[0])+ " a partire da questa immagine come se fosse un tutorial poi le approfondirò io. Formatta il risultato in questo modo %Materiali: materiale1, materiale2, materiale3%  numero istruzione)  testo istruzione."
+        second_prompt="Describe to me in points the instructions to build " +str(idee_2[0])+ " starting from this image as if it were a tutorial then I will go into more detail. Format the result like this %Materials: material1, material2, material3% instruction number) instruction text."   
         selected_url_image=url_2
         selected_idea_var=idee_2[0]
 
      elif selected_idea== "3":
-        second_prompt="Descrivimi in punti le instruzioni per costruire " +str(idee_3[0])+ " a partire da questa immagine come se fosse un tutorial poi le approfondirò io. Formatta il risultato in questo modo %Materiali: materiale1, materiale2, materiale3%  numero istruzione)  testo istruzione."
+        second_prompt="Describe to me in points the instructions to build " +str(idee_3[0])+ " starting from this image as if it were a tutorial then I will go into more detail. Format the result like this %Materials: material1, material2, material3% instruction number) instruction text." 
         selected_url_image=url_3
         selected_idea_var=idee_3[0]
 
