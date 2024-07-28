@@ -1,0 +1,50 @@
+<!-- DraftAI by Pasquale Pepe pasqualepepe887@gmail.com-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+</head>
+<body>
+  <div class="homepage">
+    <div class="typewriter">
+      <div class="h1_style">
+        <h1>DraftAI</h1>
+      </div>
+    </div>
+    
+    <!-- img generate with AI -->
+    <div id="div-img-upload" style="display:flex" class="upload-img-container">
+      <div class="img-wrapper">
+        <img id="img-upload" class="upload-img" src="{{ selected_url }}"/>
+      </div>
+    </div>
+
+    <div id="result" style="display:flex" class="result-div-info">
+       <!-- title of Idea selected-->
+       <div class="typewriter_title">
+        
+          <h1 id="title_idea_selected" style="font-size:25px" class="typewriter_title">{{  selected_idea_title  }}</h1>
+       
+      </div>
+        <!-- materials of Idea Selected-->
+
+       <h3 id="descrizione_idea_selected" style="font-size:20px; font-family: 'Courier New'; padding:15px;">{{  materials_idea_selected | safe  }}</h3>
+       {{ instruction_selected | safe}}
+
+    </div>
+    <form action="/" method="post">
+      <input type="hidden" name="data_idea" value="3">
+      <button type="submit" style="border: none; background: none; padding: 0;  cursor: pointer;">
+        <img class="img-back" src="{{ url_for('static', filename='images/back.svg') }}"></img>
+        </button>
+  </form>
+    </div>
+   </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!-- DraftAI by Pasquale Pepe pasqualepepe887@gmail.com-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" />
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+</head>
+<body>
+  <div class="homepage">
+    <div class="typewriter">
+      <div class="h1_style">
+        <h1>DraftAI</h1>
+      </div>
+    </div>
+    
+    <div id="div-scan" class="upload-container">
+      <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" id="file-input" class="file-input" name="file" accept=".png">
+        <label for="file-input" class="upload-label">
+          <img class="scanrectangle-icon" loading="lazy" alt="" src="{{ url_for('static', filename='images/scanrectangle.svg') }}" id="scanRectangle" />
+        </label>
+      </form>
+    </div>
+    
+    <div id="div-img-upload" style="display:none" class="upload-img-container">
+      <div class="img-wrapper">
+        <img id="img-upload" class="upload-img" src="{{selected_url}}"/>
+      </div>
+    </div>
+
+    <div id="result" style="display:none" class="result-div">
+      <div id="option1" class="option-div">
+          <div class="option-element-div">
+
+            <form action="/info" method="post">
+              <input type="hidden" name="data_idea" value="1">
+              <button type="submit" style="border: none; background: none; padding: 0;  cursor: pointer;">
+                <img id="img-1" class="img-url"></img>
+                <h1 id="title-idea-1" class="option-element" >...</h1> 
+              </button>
+          </form>
+
+             
+          </div>
+      </div>
+      <div id="option2" class="option-div">
+        <div class="option-element-div">
+          <form action="/info" method="post">
+            <input type="hidden" name="data_idea" value="2">
+            <button type="submit" style="border: none; background: none; padding: 0;  cursor: pointer;">
+              <img id="img-2" class="img-url"></img>
+              <h1 id="title-idea-2" class="option-element" >...</h1> 
+            </button>
+        </form> </div>
+    </div>
+
+      <div id="option3" class="option-div">
+          <div class="option-element-div">
+            <form action="/info" method="post">
+              <input type="hidden" name="data_idea" value="3">
+              <button type="submit" style="border: none; background: none; padding: 0;  cursor: pointer;">
+                <img id="img-3" class="img-url"></img>
+                <h1 id="title-idea-3" class="option-element" >...</h1> 
+              </button>
+          </form></div>
+     </div>
+    </div>
+    <form action="/" method="post">
+      <input type="hidden" name="data_idea" value="3">
+      <button type="submit" style="border: none; background: none; padding: 0;  cursor: pointer;">
+        <img id="img_back" style="display:none" class="img-back" src="{{ url_for('static', filename='images/back.svg') }}"></img>
+        </button>
+  </form>
+   </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
